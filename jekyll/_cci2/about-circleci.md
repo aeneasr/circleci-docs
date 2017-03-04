@@ -6,21 +6,21 @@ categories: [what-is-circleci]
 order: 1
 ---
 
-CircleCI is a modern **continuous integration** and **continous delivery** platform.
+CircleCI is a modern **continuous integration** and **continuous delivery** platform.
 
 Our hosted solution is available at <https://circleci.com/> or you can run [CircleCI Enterprise](https://circleci.com/enterprise/) behind the firewall, inside your private cloud or data center.
 
-## Continuous Integration 
+## Continuous Integration
 
 Continuous Integration regularly tests all changes that you make to your code-base. Developers push code into a shared repository several times a day. The integrations are then verified by an automated build and test tool. CircleCI is here to do that for you.
 
 Integrating regularly means that you detect errors early. Each change is usually small, so it's relatively easy to find the code that introduced the problem.
 
-You will likely include several types of tests: 
+You will likely include several types of tests:
 
 * [Unit Tests][wiki-unittest]
 * [Integration Tests][wiki-inttest]
-* [Functional Tests][wiki-functest] (also known as End-to-End tests) 
+* [Functional Tests][wiki-functest] (also known as End-to-End tests)
 
 [Software Testing][wiki-codetest] covers a broad range of techniques, processes and tools. The way that you write tests varies depending on the language and framework you are using.
 
