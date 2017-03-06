@@ -199,7 +199,6 @@ jobs:
 
       # The DB is not automatically created in 2.0, so we manually set up a test DB
       # If your project is Rails, then 'db:create' should create a test DB for you.
-      - run: cp config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create db:schema:load
 
       # You can also create a test DB manually if your project requires.
