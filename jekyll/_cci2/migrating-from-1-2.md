@@ -183,7 +183,8 @@ jobs:
     docker:
       - image: ruby:2.3
 
-      # You can use any DB here, but postgres requires the POSTGRES_USER environment variable
+      # You can use any DB but here we are using PostgreSQL
+      # POSTGRES_USER env var will set the default superuser in the image
       - image: postgres:9.4.1
         environment:
           POSTGRES_USER: root
@@ -197,9 +198,14 @@ jobs:
       - run: bundle install --path vendor/bundle
 
       # The DB is not automatically created in 2.0, so we manually set up a test DB
-      - run: sudo -u root createuser -h localhost --superuser ubuntu
-      - run: sudo createdb -h localhost test_db
+      # If your project is Rails, then 'db:create' should create a test DB for you.
+      - run: cp config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create db:schema:load
+
+      # You can also create a test DB manually if your project requires.
+      # We are installing postgresql package because we need 'createdb' command
+      - run: apt-get update -qq; apt-get install -y postgresql
+      - run: createdb -h localhost test_db
 
       # Run any test commands
       - run: bundle exec rspec
